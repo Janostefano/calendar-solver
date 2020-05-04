@@ -34,7 +34,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'calendar.solver.App'
+    mainClassName = 'io.meeting.Application'
 }
 
 test {

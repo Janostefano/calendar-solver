@@ -44,9 +44,7 @@ public class Period {
         LocalTime periodTwoStart = secondPeriod.getStartTime();
         LocalTime periodTwoEnd = secondPeriod.getEndTime();
 
-        if (this.endTime.isBefore(periodTwoStart)) {
-            return false;
-        } else if (periodTwoEnd.isBefore(this.startTime)) {
+        if (this.endTime.isBefore(periodTwoStart) || periodTwoEnd.isBefore(this.startTime)) {
             return false;
         }
         return true;

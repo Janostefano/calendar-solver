@@ -53,15 +53,21 @@ public class Calendar {
 
             throws JsonProcessingException {
 
-        String meetingDurationWithoutSquareBrackets = meetingDuration.replace("[", "").
-                replace("]", "");
-        int meetingLength = Integer.parseInt(meetingDurationWithoutSquareBrackets.split(":")[0]) * 60 +
-                Integer.parseInt(meetingDurationWithoutSquareBrackets.split(":")[1]);
+
+        int meetingLength = parseMeetingDuration(meetingDuration);
 
         Calendar calendarOne = Calendar.parseJson(jsonCalendarOne);
         Calendar calendarTwo = Calendar.parseJson(jsonCalendarTwo);
 
         return calendarOne.proposePossibleMeetings(calendarTwo, meetingLength);
+    }
+
+    static int parseMeetingDuration(String meetingDuration) {
+
+        String meetingDurationWithoutSquareBrackets = meetingDuration.replace("[", "").
+                replace("]", "");
+        return Integer.parseInt(meetingDurationWithoutSquareBrackets.split(":")[0]) * 60 +
+                Integer.parseInt(meetingDurationWithoutSquareBrackets.split(":")[1]);
     }
 
     List<Period> proposePossibleMeetings(Calendar secondCalendar,
@@ -136,6 +142,8 @@ public class Calendar {
 
     @Override
     public String toString() {
-        return workStartTime.toString() + "\n" + workEndTime.toString() + "\n" + scheduledMeetings.toString();
+        return "Work start: " + workStartTime.toString() + "\n" +
+                "Work end: " + workEndTime.toString() + "\n" +
+                "Already scheduled meetings: " + scheduledMeetings.toString();
     }
 }
