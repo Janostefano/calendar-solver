@@ -13,12 +13,12 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Calendar {
-    private LocalTime workStartTime;
-    private LocalTime workEndTime;
+    private final LocalTime workStartTime;
+    private final LocalTime workEndTime;
 
-    private List<Period> scheduledMeetings;
+    private final List<Period> scheduledMeetings;
 
-    private static ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper mapper = new ObjectMapper();
 
     @JsonCreator
     public Calendar(@JsonProperty("working_hours") Period workingHours,

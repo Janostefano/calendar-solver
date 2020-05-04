@@ -2,10 +2,6 @@ package io.meeting;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Application {
     public static void main(String[] args) throws JsonProcessingException {
         String jsonCalendarOne = """
@@ -73,7 +69,7 @@ public class Application {
         System.out.println("\n\nList of time to schedule meetings with length 30: " +
                 exampleCalendar.proposePossibleMeetings(secondExampleCalendar, meetingLength));
 
-        System.out.println("\n\nList of time to schedule meetings with length 45: " +
+        System.out.println("\nList of time to schedule meetings with length 45: " +
                 exampleCalendar.proposePossibleMeetings(secondExampleCalendar, 45));
     }
 }

@@ -11,8 +11,8 @@ import java.util.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Period {
 
-    private LocalTime startTime;
-    private LocalTime endTime;
+    private final LocalTime startTime;
+    private final LocalTime endTime;
 
     Period(LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
