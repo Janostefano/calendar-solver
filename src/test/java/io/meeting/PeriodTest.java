@@ -282,21 +282,31 @@ class PeriodTest {
         ObjectMapper mapper = new ObjectMapper();
 
         @Test
-        void shouldParseOnePeriodFromJson() throws JsonProcessingException {
+        void shouldParseOnePeriodFromJson() {
             String json = "{\"start\": \"08:00\", \"end\": \"09:15\"}";
 
-            Period period = mapper.readValue(json, Period.class);
+            Period period = null;
+            try {
+                period = mapper.readValue(json, Period.class);
+            } catch (JsonProcessingException e) {
+                System.out.println("Incorrect json format");
+            }
 
             Assertions.assertEquals(LocalTime.of(8, 0), period.getStartTime());
             Assertions.assertEquals(LocalTime.of(9, 15), period.getEndTime());
         }
 
         @Test
-        void shouldParseManyPeriodsFromJson() throws JsonProcessingException {
+        void shouldParseManyPeriodsFromJson() {
             String json = "[{\"start\": \"08:00\", \"end\": \"09:00\"}, {\"start\": \"10:00\", \"end\": \"11:00\"}]";
 
-            List<Period> periods = mapper.readValue(json, new TypeReference<List<Period>>() {
-            });
+            List<Period> periods = null;
+            try {
+                periods = mapper.readValue(json, new TypeReference<List<Period>>() {
+                });
+            } catch (JsonProcessingException e) {
+                System.out.println("Incorrect json format");
+            }
 
             Assertions.assertEquals(2, periods.size());
         }

@@ -136,8 +136,13 @@ public class Calendar {
         return unoccupiedPeriods;
     }
 
-    static Calendar parseJson(String json) throws JsonProcessingException {
-        return mapper.readValue(json, Calendar.class);
+    static Calendar parseJson(String json) {
+        try {
+            return mapper.readValue(json, Calendar.class);
+        } catch (JsonProcessingException e) {
+            System.out.println("Incorrect JSON format");
+        }
+        return null;
     }
 
     @Override
