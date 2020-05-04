@@ -49,9 +49,7 @@ public class Calendar {
     // this method is created strictly to solve recruitment task, proposePossibleMeetings is more universal
     static List<Period> resolveCalendars(String jsonCalendarOne,
                                          String jsonCalendarTwo,
-                                         String meetingDuration)
-
-            throws JsonProcessingException {
+                                         String meetingDuration) {
 
 
         int meetingLength = parseMeetingDuration(meetingDuration);

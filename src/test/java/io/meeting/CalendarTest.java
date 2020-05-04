@@ -14,7 +14,7 @@ class CalendarTest {
     @Nested
     class ResolveCalendarTest {
         @Test
-        void shouldReturnProperListOfMeetingsPossibleToSchedule() throws JsonProcessingException {
+        void shouldReturnProperListOfMeetingsPossibleToSchedule() {
             String jsonCalendarOne = "{" +
 "                                   \"working_hours\": {" +
 "                                      \"start\": \"09:00\"," +
